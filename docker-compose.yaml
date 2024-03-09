@@ -11,6 +11,12 @@ services:
     image: "redis:alpine"
     volumes:
       - redis-data:/data
+  redisinsight:
+    image: "redislabs/redisinsight:v2"
+    ports:
+      - "5540:5540"
+    depends_on:
+      - redis
 
 volumes:
   redis-data:
